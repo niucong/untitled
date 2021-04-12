@@ -1,5 +1,10 @@
-// 3.å››ç§ç±»å‹è½¬æ¢ã€‚ reinterpret_cast å¼ºåˆ¶è½¬æ¢ æ¯” static_castè¦å¼ºå¤§ï¼Œ static_castèƒ½å¤Ÿåšçš„äº‹æƒ…ï¼Œ
-// reinterpret_castå¼ºåˆ¶è½¬æ¢éƒ½å¯ä»¥ï¼ŒåŒæ—¶å¹¶ä¸”é™„åŠ  æ–°åŠŸèƒ½
+// 3.ËÄÖÖÀàĞÍ×ª»»¡£ reinterpret_cast Ç¿ÖÆ×ª»» ±È static_castÒªÇ¿´ó£¬ static_castÄÜ¹»×öµÄÊÂÇé£¬
+// reinterpret_castÇ¿ÖÆ×ª»»¶¼¿ÉÒÔ£¬Í¬Ê±²¢ÇÒ¸½¼Ó ĞÂ¹¦ÄÜ
+
+//const_cast	È¥µôÀàĞÍµÄconst»òvolatileÊôĞÔ
+//static_cast	ÎŞÌõ¼ş×ª»»£¬¾²Ì¬ÀàĞÍ×ª»»
+//dynamic_cast	ÓĞÌõ¼ş×ª»»£¬¶¯Ì¬ÀàĞÍ×ª»»£¬ÔËĞĞÊ±¼ì²éÀàĞÍ°²È«£¨×ª»»Ê§°Ü·µ»ØNULL£©
+//reinterpret_cast	½öÖØĞÂ½âÊÍÀàĞÍ£¬µ«Ã»ÓĞ½øĞĞ¶ş½øÖÆµÄ×ª»»
 
 #pragma once
 #include <iostream>
@@ -20,16 +25,16 @@ public:
 
 int main() {
     DerryPlayer * derryPlayer = new DerryPlayer();
-    long playerValue = reinterpret_cast<long>(derryPlayer); // æŠŠå¯¹è±¡å˜æˆæ•°å€¼
+    long playerValue = reinterpret_cast<long>(derryPlayer); // °Ñ¶ÔÏó±ä³ÉÊıÖµ
 
-    // é€šè¿‡æ•°å€¼ å˜æˆå¯¹è±¡
+    // Í¨¹ıÊıÖµ ±ä³É¶ÔÏó
     DerryPlayer * derryPlayer2 = reinterpret_cast<DerryPlayer *>(playerValue);
     derryPlayer2->show();
 
     printf("derryPlayer:%p\n", derryPlayer);
     printf("derryPlayer2:%p\n", derryPlayer2);
 
-    // å‰é¢çš„åªæ˜¯ï¼šä¸ºä»€ä¹ˆä¸ä¸€æ ·ï¼šå› ä¸ºæŒ‡é’ˆå­˜æ”¾åœ°å€ï¼ŒåŒæ—¶æŒ‡é’ˆæœ‰è‡ªå·±çš„åœ°å€ï¼Œè€Œä½ æ‰“å°äº†è‡ªå·±çš„çš„åœ°å€ï¼Œèƒ½ä¸€æ ·ï¼Ÿ
+    // Ç°ÃæµÄÖ»ÊÇ£ºÎªÊ²Ã´²»Ò»Ñù£ºÒòÎªÖ¸Õë´æ·ÅµØÖ·£¬Í¬Ê±Ö¸ÕëÓĞ×Ô¼ºµÄµØÖ·£¬¶øÄã´òÓ¡ÁË×Ô¼ºµÄµÄµØÖ·£¬ÄÜÒ»Ñù£¿
     printf("derryPlayer:%p\n", &derryPlayer);
     printf("derryPlayer2:%p\n", &derryPlayer2);
 

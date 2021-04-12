@@ -12,7 +12,7 @@ void show(int  i) {
 int main() {
     show(9);
 
-    show(nullptr); // C++11 鍚庣殑鐗规�э細 鍘熸湰鏈剰浠ｆ浛NULL锛岄櫎浜嗕唬鏇縉ULL锛岃繕鏈夋鍔熻兘
+    show(nullptr); // C++11 后的特性： 原本本意代替NULL，除了代替NULL，还有此功能
 
     return 0;
 }

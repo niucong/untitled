@@ -1,4 +1,9 @@
-// 3.å››ç§ç±»å‹è½¬æ¢ã€‚ const_cast     constä¿®é¥°çš„ éƒ½å¯ä»¥å»è½¬æ¢
+// 3.ËÄÖÖÀàĞÍ×ª»»¡£ const_cast     constĞŞÊÎµÄ ¶¼¿ÉÒÔÈ¥×ª»»
+
+//const_cast	È¥µôÀàĞÍµÄconst»òvolatileÊôĞÔ
+//static_cast	ÎŞÌõ¼ş×ª»»£¬¾²Ì¬ÀàĞÍ×ª»»
+//dynamic_cast	ÓĞÌõ¼ş×ª»»£¬¶¯Ì¬ÀàĞÍ×ª»»£¬ÔËĞĞÊ±¼ì²éÀàĞÍ°²È«£¨×ª»»Ê§°Ü·µ»ØNULL£©
+//reinterpret_cast	½öÖØĞÂ½âÊÍÀàĞÍ£¬µ«Ã»ÓĞ½øĞĞ¶ş½øÖÆµÄ×ª»»
 
 #include <iostream>
 
@@ -11,9 +16,9 @@ public:
 
 int main() {
     const Person * p1 = new Person();
-    // p1->name = "Derry"; // æŠ¥é”™ï¼šå¸¸é‡æŒ‡é’ˆï¼Œä¸å†™ä¿®æ”¹å€¼
+//     p1->name = "Derry"; // ±¨´í£º³£Á¿Ö¸Õë£¬²»Ğ´ĞŞ¸ÄÖµ
 
-    Person * p2 = const_cast<Person *>(p1); // è½¬æˆ éå¸¸é‡æŒ‡é’ˆ
+    Person * p2 = const_cast<Person *>(p1); // ×ª³É ·Ç³£Á¿Ö¸Õë
     p2->name = "Derry";
 
     cout << p1->name << endl;

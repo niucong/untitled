@@ -1,11 +1,16 @@
-// 3.å››ç§ç±»åž‹è½¬æ¢ã€‚ dynamic å­—ç¬¦ç±»å¤šæ€ è¿è¡ŒæœŸ è½¬æ¢
+// 3.ËÄÖÖÀàÐÍ×ª»»¡£ dynamic ×Ö·ûÀà¶àÌ¬ ÔËÐÐÆÚ ×ª»»
+
+//const_cast	È¥µôÀàÐÍµÄconst»òvolatileÊôÐÔ
+//static_cast	ÎÞÌõ¼þ×ª»»£¬¾²Ì¬ÀàÐÍ×ª»»
+//dynamic_cast	ÓÐÌõ¼þ×ª»»£¬¶¯Ì¬ÀàÐÍ×ª»»£¬ÔËÐÐÊ±¼ì²éÀàÐÍ°²È«£¨×ª»»Ê§°Ü·µ»ØNULL£©
+//reinterpret_cast	½öÖØÐÂ½âÊÍÀàÐÍ£¬µ«Ã»ÓÐ½øÐÐ¶þ½øÖÆµÄ×ª»»
 
 #include <iostream>
 using namespace std;
 
 class FuClass {
 public:
-    // åŠ¨æ€è½¬æ¢å¿…é¡»è®©çˆ¶ç±»æˆä¸ºè™šå‡½æ•°
+    // ¶¯Ì¬×ª»»±ØÐëÈÃ¸¸Àà³ÉÎªÐéº¯Êý
     virtual void show() {
         cout << "fu show" << endl;
     }
@@ -19,20 +24,20 @@ public:
 };
 
 int main() {
-    // åŠ¨æ€ç±»åž‹è½¬æ¢çš„æ—¶å€™ï¼Œåœ¨è¿è¡ŒæœŸ ç”±äºŽfuClass æ˜¯new çˆ¶ç±»çš„ï¼Œå·²æˆå®šå±€ï¼Œå°±ä¸èƒ½è½¬æ¢å­ç±»
-    // FuClass * fuClass = new FuClass(); // å¤±è´¥
+    // ¶¯Ì¬ÀàÐÍ×ª»»µÄÊ±ºò£¬ÔÚÔËÐÐÆÚ ÓÉÓÚfuClass ÊÇnew ¸¸ÀàµÄ£¬ÒÑ³É¶¨¾Ö£¬¾Í²»ÄÜ×ª»»×ÓÀà
+    // FuClass * fuClass = new FuClass(); // Ê§°Ü
 
-    FuClass * fuClass = new ZiClass; // å·²æˆå®šå±€ æ˜¯å­ç±»
+    FuClass * fuClass = new ZiClass; // ÒÑ³É¶¨¾Ö ÊÇ×ÓÀà
     ZiClass * ziClass = dynamic_cast<ZiClass *>(fuClass);
 
-    // TODO å­ç±»è½¬çˆ¶ç±»ä¸è¡Œçš„ï¼ŒåŒå­¦ä»¬è‡ªå·±åŽ»è¯•ä¸€è¯•
+    // TODO ×ÓÀà×ª¸¸Àà²»ÐÐµÄ£¬Í¬Ñ§ÃÇ×Ô¼ºÈ¥ÊÔÒ»ÊÔ
 
-    // åŠ¨æ€è½¬æ¢æ˜¯æœ‰è¿”å›žå€¼ï¼Œ null è½¬æ¢å¤±è´¥
+    // ¶¯Ì¬×ª»»ÊÇÓÐ·µ»ØÖµ£¬ null ×ª»»Ê§°Ü
     if (ziClass) { // ziClass != null
-        cout << "æ­å–œï¼Œè½¬æ¢æˆåŠŸ " ;
+        cout << "¹§Ï²£¬×ª»»³É¹¦ " ;
         ziClass->show();
     } else {
-        cout << "ä¸æ­å–œ è½¬æ¢å¤±è´¥" << endl ;
+        cout << "²»¹§Ï² ×ª»»Ê§°Ü" << endl ;
     }
 
 
